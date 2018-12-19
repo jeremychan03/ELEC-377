@@ -1,0 +1,7 @@
+Kernel variables:
+nr_running -> c03dc3a4
+nr_threads -> c038b3a8
+
+Process priority:
+Get using:   > ps -e -l
+Default priority: 0

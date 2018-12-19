@@ -1,0 +1,123 @@
+Initial Program:
+
+isProcessDir {
+	if name[0] is digit {
+		return true (1)
+	} else {
+		return false (0)
+	}
+}
+		
+main{
+
+	numProc = scandir("/proc" &namelist, isProcessDir)
+
+	for each process in namelist {
+		
+		construct path to /proc/PID/status file
+		open /proc/PID/status file
+		
+		print(header)
+		
+		for each line in /proc/PID/status file {
+			
+			read line from /proc/PID/status file
+			
+			try to extract process name
+			try to extract process state
+			try to extract process UID
+			
+			if UID was found {
+				break
+			}
+				
+		}
+		
+		close /proc/PID/status file 
+		
+		print(PID, process name, process state, process UID)
+		
+	}
+		
+}
+
+Description of final program:
+
+IsProcessDir:
+	
+	Loop over all the characters in the directory name
+	If one of them is a non-digit, return false (0)
+	Otherwise, return true (1)
+
+Main:
+	
+	Read in all the processes from the /proc pseudo-directory
+	
+	Open the /etc/passwd file
+	Count how many lines (users) it contains
+	Allocate space for an array of UIDs and usernames to fit all the users in the /etc/passwd file
+	
+	For each line (user) in the /etc/passwd file:
+	
+		Read in the line (user)
+		Extract the username and UID
+		Store the username and UID in the arrays allocated above
+	
+	Close the /etc/passwd file
+		
+	Print the header (PID, Name, State, User, Command)
+	
+	For each process:
+		
+		Construct the current status file path (/proc/PID/status)
+		Open the /proc/PID/status file
+		
+		For each line in the /proc/PID/status file:
+		
+			Read in the line
+			Try to extract the process name
+			Try to extract the process state
+			Try to extract the process UID
+			
+			If UID was found in the current line:
+				Stop reading the current /proc/PID/status file
+				
+		Close the /proc/PID/status file
+				
+		Construct the current cmdline file path (/proc/PID/cmdline)
+		Open the /proc/PID/cmdline file
+		
+		Read in the command in the /proc/PID/cmdline file
+		
+		Close the /proc/PID/cmdline file
+		
+		If the state starts with "S" (sleeping):
+			Keep the colour as GREY
+		If the state starts with "R" (running):
+			Set the colour to GREEN
+		If the state starts with "D" (Uninterruptable sleep):
+			Set the colour to BLUE
+		If the state starts with "T" (stopped):
+			Set the colour to RED
+			
+		Match the UID with the username using the arrays allocated above
+			
+		Print out the PID, Name, State, User, Command in the current colour
+		
+		
+Description of testing:
+
+To determine the validity of the code we developed, 
+it was tested to ensure that its outputs were correct. 
+
+To test the code the output of our program was compared to the output of ps, which is a program built into Linux that completes the same task. 
+Running "ps -a -f" within the Linux shell results in it printing all currently running processes. 
+The output of "ps -a -f" included itself, but not our Lab1 program, as it was not running at the time.
+This output is included in the file "Lab1_PS_Output.txt".
+
+Whne running our Lab1 program, all currently running  processes are displayed, same as "ps -a -f"
+The output of our Lab1 program, included itself as it was running, but not the ps program, as it was not running at the time.
+This output is included in the file "Lab1_Code_Output.txt".
+
+The results of this testing demonstrate that our program performs its intended task.
+

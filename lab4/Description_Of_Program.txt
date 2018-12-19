@@ -1,0 +1,163 @@
+----------------- Pseudo-code description of algorithm ------------------
+Part 1: 
+
+    loop through all process directories in /proc/ directory:
+    
+        if a status file does not exists for this process:
+            Skip this process 
+        
+        Get the PID of the current process 
+        
+        Get the user of the current process
+        
+        Get the RSS of the current process (RSS is current mem being occupied by process)
+        
+        if there is an RSS value to read:
+            Read the RSS value from the process 
+        else:
+            Set the RSS value to 0 
+        
+        Read the command for the current process:
+            Replace null characters with spaces
+        
+        if the command value does not exist:
+            Set the command values to the process name in square brackets instead
+        
+        Print out the details of the process (PID, USER, RSS, COMMAND)
+
+
+Part 2:
+    
+    look through all files in passed in path recursively
+        
+        get the full file path
+        
+        if the file contains a main function:
+            get the number of fprintf statements
+            get the number of of printf statements
+            
+            print the full file path and name and number of fprintf's and printf's
+            
+    if no files with main function were found:
+        print "No main files"
+        
+        
+    look through all files in passed in path recursively
+        
+        get the full file path
+        
+        if the file contains an init_module function
+            get line numbers of all "printk" statements
+            
+            print the full file path and name and which lines the printk statements are on 
+            
+    if no files with init_module function were found:
+        print "No module files"
+           
+           
+    look through all files in passed in path recursively
+        
+        get the full file path
+        
+        if the file does not contains a main or an init_module function
+            
+            print the full file path and name
+            
+    if no files without a main or init_module functions were found:
+        print "No other files"
+        
+
+------------------------- Description of program ------------------------
+
+Part 1:
+
+    Print command to set up format of the columns of data we will be printing out     
+    
+    for loop do go through all files in the sub-directories
+    
+        if the status file does not exist:
+            Skip this process 
+        
+        Get the PID of the current process
+            Do this by looking at proc directory name
+        
+        Get the user of the current process 
+            Do this by looking at user that owns the current proc directory
+        
+        Get the RSS of the current process (RSS is current mem being occupied by process)
+            Look for it using grep by searching for "VmRSS" in the status file
+        
+        if there is an RSS value to read:
+            read the RSS value from the process 
+        else: 
+            Set the RSS value to 0 
+        
+        Get the command value from the process 
+            Replace null characters with spaces
+        
+        if the command value does not exist
+            Get process name by using grep by searching for "Name" in the status file
+            print out process name in square brackets 
+        
+        Print out the details of the process (PID, USER, RSS)
+        Print out command using echo instead of print for formatting reasons
+        
+Part 2:
+
+    Print "Main files:" heading
+    
+    look through all files in passed in path recursively:
+        
+        get the full file path using readlink command
+        
+         if the file contains a main function:
+            Determined using "grep -c" to count occurrences
+         
+            Set a flag variable to indicate that a file with a main function exists
+         
+            check file for # of fprintf statements
+                do this through the use of a grep command with "fprintf" search pattern
+            check the file for # of printf statements
+                do this through the use of a grep command with "printf" search pattern 
+                Subtract the # of printf's from # of fprintf's to account for overlap
+            
+            print the full file path and name and number of fprintf's and printf's using a simple printf
+            
+    if no files with main function were found (flag was not set):
+        print "No main files"
+        
+        
+    Print "Module files:" heading
+        
+    look through all files in passed in path recursively:
+        
+        get the full file path using readlink command
+        
+        if the file contains an init_module function:
+            Determined using "grep -c" to count occurrences
+        
+            Set a flag variable to indicate that a file with an init_module function exists
+            
+            get line numbers of all "printk" statements 
+                This is done using "grep -n" to print line numbers, "cut -d : -f 1" to get only line numbers "tr '\n' ','" to replace newlines with commas and ${lineNumbers%?} to remove trailing comma
+            
+            print the full file path and name and which lines the printk statements are on 
+            
+    if no files with init_module function were found (flag was not set):
+        print "No module files"
+           
+           
+    look through all files in passed in path recursively:
+        
+        get the full file path using readlink command
+        
+        if the file does not contais a main or an init_module function:
+            Determined using "grep -c" to count occurrences
+            
+            Set a flag variable to indicate that a file without a main or an init_module function exists
+            
+            print the full file path and name
+            
+    if no files without a main or init_module functions were found (flag was not set):
+        print "No other files"
+  

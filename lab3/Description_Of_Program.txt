@@ -1,0 +1,179 @@
+----------------- Pseudo-code description of algorithm ------------------
+
+Common:
+    test and set: Perform an atomic perform and exchange operation
+    mutexInit: Initialize the mutex 
+    getMutex:
+        set key to true
+        while key is not available 
+            set val of key 
+        set waiting flag to false
+    releaseMutex:
+        while current process not waiting 
+            go through all processes 
+        if no processes waiting 
+            release key 
+        else
+            pass key to next process 
+
+
+Consumer:
+    if num of arguments != 2
+        print out process id 
+    if pid < 0 or pid > numprocs 
+        print range of procs 
+    if shared mem ident at max = -1
+        if shared mem idet at 0 = -1
+            failure to allocate shared mem 
+    if shared mem seg != -1
+        failure to allocate shared mem 
+    
+    while != end of input 
+        while data hasn't been read from shared buffer 
+            enter crit section 
+            if there is data in buffer 
+                read character from buffer and indicate index of next character
+                decrement number of character in the buffer 
+            else 
+                if no more producers 
+                set isEnd and read to true
+        exit crit section 
+    if data read is valid 
+        print data to screen and clear buffer
+            
+Producer:
+    if num of arguments != 2
+        print out process id 
+    if pid < 0 or pid > numprocs 
+        print range of procs 
+    if shared mem ident at max = -1
+        if shared mem idet at 0 = -1
+            failure to allocate shared mem 
+    if shared mem seg != -1
+        failure to allocate shared mem 
+    
+    initialize vars like shared mem pointer
+    increment number of producers in critical section 
+    
+    while there are charters in the input 
+        while character has not been put in the buffer 
+            enter crit section 
+            if space in buffer 
+                put character in buffer, and indicate index of next character
+                increment # of characters in buffer 
+                stored = true
+            exit crit section 
+    decrement # producers in critical section         
+
+        
+------------------------- Description of program ------------------------
+
+Common:
+    Test_and_set:
+        performs an atomic compare and exchange operation 
+        compares lock and other values 
+    
+    mutexInit:
+        initialize the mutex once from the producer 
+     
+    getMutex:
+        set the key to be true
+        indicate that the current process wants the key
+        while loop to wait until the key becomes available 
+            set the value of key
+        key is now available, set waiting flag to false     
+            
+    releaseMutex: 
+        calculate the next pid 
+        while current process is not waiting 
+            loop through all the processes. 
+        if no processes are currently waiting 
+            release the key by setting lock to false 
+        else
+            pass the key to the next running process 
+
+Consumer:
+    main: 
+        initialize the key var, memptr struct, and the shared memory identifier
+        if the num of arguments is not equal to 2
+            print out the process id 
+            
+        convert argument vector to an int 
+        if pid is less than 0 or greater than the number of procs 
+            print out the range of procs 
+            
+        generate an IPC key based off the path and id  
+        if shared memory identifier at max is equal to -1
+            if shared memory identifier for flag0 is equal to -1
+                print message indicating failure to allocate shared mem
+                
+        if the shared memory segment identified by shmid does not equal -1 
+            print message indicating a failure to map memory into process space. 
+            
+        create character to store in 
+        create var to check whether end of data has been reached. 
+        while we haven't reached the end of the input
+        
+            set read to false 
+            while the data hasn't been read from the shared buffer 
+                
+                get the current mutex / enter the critical section
+                if there is data in the buffer 
+                    read a character from the buffer 
+                    indicate the index of the next character 
+                    decrement the number of characters in the buffer 
+                    indicate that the data was read 
+                else
+                    if there are no more producers
+                        set isEnd to true
+                        set read to true 
+                        
+            exit the critical section by releasing mutex 
+        
+        if the data read is valid 
+            print the data to the screen 
+            clear the output buffer 
+
+
+Producer:
+     main:
+        initialize key var, memtpr struct, shared memory identifier, and c, stored ints 
+        print starting message
+        //Much of the early part of main here is same as consumer
+        
+        if the num of arguments is not equal to 2
+            print out the process id 
+            
+        convert argument vector to an int 
+        if pid is less than 0 or greater than the number of procs 
+            print out the range of procs 
+            
+        generate an IPC key based off the path and id  
+        if shared memory identifier at max is equal to -1
+            if shared memory identifier for flag0 is equal to -1
+                print messagae indicating failure to allocate shared mem
+                
+        if the shared memory segment identified by shmid does not equal -1 
+            print message indicating a failure to map memory into process space.
+        
+        Initialize the shared memory pointer 
+        get the current mutex 
+        increment the number of producers in the critical section 
+        release the mutex 
+        
+        while there are characters in the input
+            set stores to false 
+            while the character has not been put in the buffer 
+                enter the critical section 
+                if there is space in the buffer 
+                    put current character in the buffer 
+                    print out debug statement 
+                    set the index of where to put the next character 
+                    increment the number of characters in the buffer 
+                    set the indicator that the character has been stored to true
+                    
+                exit the critical section      
+        
+         getmutex 
+         decrement number of producers in critical section 
+         release mutex 

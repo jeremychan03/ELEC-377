@@ -1,0 +1,26 @@
+The currently running processes are:
+PID  Name            State         User            Command
+1    init            S (sleeping)  root            init [3]
+2    keventd         S (sleeping)  root            init [3]
+3    ksoftirqd_CPU0  S (sleeping)  root            init [3]
+4    kswapd          S (sleeping)  root            init [3]
+5    bdflush         S (sleeping)  root            init [3]
+6    kupdated        S (sleeping)  root            init [3]
+10   mdrecoveryd     S (sleeping)  root            init [3]
+11   kjournald       S (sleeping)  root            init [3]
+59   syslogd         S (sleeping)  root            /usr/sbin/syslogd
+62   klogd           S (sleeping)  root            /usr/sbin/klogd
+167  dhcpcd          S (sleeping)  root            /sbin/dhcpcd
+1545 khubd           S (sleeping)  root            /sbin/dhcpcd
+1568 inetd           S (sleeping)  root            /usr/sbin/inetd
+1575 crond           S (sleeping)  root            /usr/sbin/crond
+1578 sendmail        S (sleeping)  root            sendmail: accepting connections
+1581 sendmail        S (sleeping)  smmsp           sendmail: Queue runner@00:25:00 for /var/spool/clientmqueue
+1585 bash            S (sleeping)  student         -bash
+1586 agetty          S (sleeping)  root            /sbin/agetty
+1587 agetty          S (sleeping)  root            /sbin/agetty
+1588 agetty          S (sleeping)  root            /sbin/agetty
+1589 agetty          S (sleeping)  root            /sbin/agetty
+1590 agetty          S (sleeping)  root            /sbin/agetty
+1631 jed             T (stopped)   student         jed
+1632 lab1            R (running)   student         ./lab1

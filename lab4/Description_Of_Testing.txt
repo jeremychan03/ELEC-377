@@ -1,0 +1,24 @@
+Part 1:
+
+The first scrip was tested by running the given command "ps -eo pid,user,rss,args" and looking at the output (in PS_Output.txt)
+Then the code was written to mimic the behaviour of the ps command and to format the output in the same way (in Part1_Output.txt).
+The two output files are the same except for the last process. In the first case, the ps command is being run so it is the last process. In the second case, the part1 command is being run so it is the last process.
+
+Part 2:
+
+A testing file (test.c) was created that contained both a main and in init_module function as well as printf, fprintf, and printk statements.
+An empty folder was also created in the lab4 folder (not in the repository since it contains no files).
+
+The script was ran in the same folder using 
+> ./part2.sh
+It found the correct line numbers and number of printf and fprintf statements in this testing file (output in Part2_Output_Lab4_Folder.txt)
+
+The script was then ran given the lab 3 folder as the path using
+> ./part2.sh ../lab3
+It found the correct line numbers and number of printf and fprintf statements in all the lab 3 files (output in Part2_Output_Lab3_Folder.txt)
+
+The script was then ran given an empty folder as the path using
+> ./part2.sh empty
+It correctly printed that no files containing the main or init_module or other files were found  (output in Part2_Output_Empty_Folder.txt)
+
+Note: the file paths are different than the standard VMs since part 2 was tested on a local Kali Linux VM.

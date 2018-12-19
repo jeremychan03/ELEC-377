@@ -1,0 +1,66 @@
+----------------------------- Selfcomp -----------------------------
+
+Required string size:       145 + null char (\0) = 146
+Number of NOP instructions: 43
+Required return address:    0xbffff890 - 4 - 61 = 0xbffff82b
+
+Simply writes the contents of the "compromise" array to the buffer in the "doTest" function.
+The local buffer in the "doTest" function is only 120 character long, but the exploit string is 146 long.
+The NOP instructions at the start of the exploit string make sure that characters for the return address 
+at the end of the exploit string are aligned with the saved return address on the stack in the "doTest" function.
+
+This results in overwriting the saved return address pointing to the next instruction in main with the return address in the exploit.
+When the "doTest" function returns, it loads the value of the saved return address to the PC (the eip register)
+This causes the PC to point to the start of the exploit code.
+The exploit code contains NOP instructions at the start (a NOP sled) which will result in the PC being incremented continuously.
+The PC will eventually point to the first real instruction of the exploit which will execute the code it it (explained in the exploit section). 
+
+----------------------------- Client -----------------------------
+
+Required string size:       155 + newline char (\n) + null char (\0) = 137
+Number of NOP instructions: 27
+Required return address:    0xbffff810 - 4 - 61 = 0xbffff7ab
+
+The client works largely the same as the selfcomp program described above.  
+The major change being that the client program sends the exploit string over the (local) network to the server.
+The server uses the "gets" function to read in the data from the client, therefore,
+the exploit string contains a newline as the second last character, right before the null character.
+This is required for the server code to properly read in the while exploit string, otherwise the "gets" function will not return.
+
+Once the server reads in the exploit string, the exploit will be preformed on the machine running the server (localhost in this lab)
+The exploit will cause the "cat" command to print out the contents of the /etc/passwd file which will be sent over the network to the client.
+The client will print out the reply of the server which is the contents of the /etc/passwd file of the computer the server is running on (localhost in this lab).
+
+----------------------------- Exploit -----------------------------
+
+The exploit code is written in assembly, its basic task is to execute the command:
+> sh -c "cat /etc/passwd; exit"
+
+This will cause the "cat" program to print out the contents of the /etc/passwd file.
+
+To do so, a system call must be preformed to execute the "execve" command using a trap instruction (int 0x80). 
+This will replace the running server program with the desired "cat" command above.
+To do this system call, the assembly code sets up the arguments on the stack that will be used by the system call when the trap instruction is executed.
+
+The system call number is 0x0b for "execve" on linux, this is stored in eax.
+The name of the command to execute is "/bin/sh" (the shell), this is stored in ebx.
+The ecx register contains a pointer to the arguments:
+    The first parameter is the name of the command which is shared with ebx.
+    The second is "-c" (to execute the following command).
+    The third is "cat /etc/passwd; exit" (to print the contents of the desired file and exit).
+    The forth is a null byte to indicate the end of the parameters.
+The value in edx is also a null byte since no special env. variables are being set.
+
+These string are stored in the assembly code as simple byte arrays, not null terminated and cannot contain newline characters (0x0A) for the exploit to be read in by the "gets" function properly.
+So the code needs to first put in the required null bytes at the end of every string and then put the strings into the array of parameters on the stack.
+
+This is done by first jumping to the location of the first string (codeEnd) and calling the start location of the actual exploit, start2.
+Next, the value in esi is popped to find the run-time adress of the first string in memory once the exploit code is loaded and running.
+After this, eax is XORed with itself to set it to zero (can't set it directly since the "gets" function would stop at this point).
+The next four lines calculate the runtime addressed of the argument strings and set the last byte of each to 0 so they are properly read in by the system call.
+The next three section put the strings into arrayAddr.
+Next, the stack is prepared to execute the system call as described above, and finally the trap instruciton is executed (int 0x80).
+
+The first four calculations are done using "esi+<previous string>-exeStr" to calulate the runtime addresses of the last byte in each string.
+The next three calculations are done by loading the addresses of each string into the edi register and making the array point to the value in the edi register for each string.
+

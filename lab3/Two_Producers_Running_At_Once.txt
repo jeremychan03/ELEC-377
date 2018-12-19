@@ -1,0 +1,268 @@
+Starting...
+Got pid: 1
+Pid 1 put T in index [0], count is now: 1
+Pid 1 put h in index [1], count is now: 2
+Pid 1 put i in index [2], count is now: 3
+Pid 1 put s in index [3], count is now: 4
+Pid 1 put   in index [4], count is now: 5
+Pid 1 put i in index [0], count is now: 5
+Pid 1 put s in index [1], count is now: 5
+Pid 1 put   in index [2], count is now: 5
+Pid 1 put t in index [3], count is now: 5
+Pid 1 put h in index [4], count is now: 5
+Pid 1 put e in index [0], count is now: 5
+Pid 1 put   in index [1], count is now: 5
+Pid 1 put 1 in index [2], count is now: 5
+Pid 1 put s in index [3], count is now: 5
+Pid 1 put t in index [4], count is now: 5
+Pid 1 put   in index [0], count is now: 5
+Pid 1 put l in index [1], count is now: 5
+Pid 1 put i in index [2], count is now: 5
+Pid 1 put n in index [3], count is now: 5
+Pid 1 put e in index [4], count is now: 5
+Pid 1 put   in index [0], count is now: 5
+Pid 1 put f in index [1], count is now: 5
+Pid 1 put r in index [2], count is now: 5
+Pid 1 put o in index [3], count is now: 5
+Pid 1 put m in index [4], count is now: 5
+Pid 1 put   in index [0], count is now: 5
+Pid 1 put t in index [1], count is now: 5
+Pid 1 put h in index [2], count is now: 5
+Pid 1 put e in index [3], count is now: 5
+Pid 1 put   in index [4], count is now: 5
+Pid 1 put 1 in index [0], count is now: 5
+Pid 1 put s in index [1], count is now: 5
+Pid 1 put t in index [2], count is now: 5
+Pid 1 put   in index [3], count is now: 5
+Pid 1 put p in index [4], count is now: 5
+Pid 1 put r in index [0], count is now: 5
+Pid 1 put o in index [1], count is now: 5
+Pid 1 put d in index [2], count is now: 5
+Pid 1 put u in index [3], count is now: 5
+Pid 1 put c in index [4], count is now: 5
+Pid 1 put e in index [0], count is now: 5
+Pid 1 put r in index [1], count is now: 5
+Pid 1 put 
+ in index [2], count is now: 5
+Pid 1 put T in index [3], count is now: 5
+Pid 1 put h in index [4], count is now: 5
+Pid 1 put i in index [0], count is now: 5
+Pid 1 put s in index [1], count is now: 5
+Pid 1 put   in index [2], count is now: 5
+Pid 1 put i in index [3], count is now: 5
+Pid 1 put s in index [4], count is now: 5
+Pid 1 put   in index [0], count is now: 5
+Pid 1 put t in index [1], count is now: 5
+Pid 1 put h in index [2], count is now: 5
+Pid 1 put e in index [3], count is now: 5
+Pid 1 put   in index [4], count is now: 5
+Pid 1 put 2 in index [0], count is now: 5
+Pid 1 put n in index [1], count is now: 5
+Pid 1 put d in index [2], count is now: 5
+Pid 1 put   in index [3], count is now: 5
+Pid 1 put l in index [4], count is now: 5
+Pid 1 put i in index [0], count is now: 5
+Pid 1 put n in index [1], count is now: 5
+Pid 1 put e in index [2], count is now: 5
+Pid 1 put   in index [3], count is now: 5
+Pid 1 put f in index [4], count is now: 5
+Pid 1 put r in index [0], count is now: 5
+Pid 1 put o in index [1], count is now: 5
+Pid 1 put m in index [2], count is now: 5
+Pid 1 put   in index [3], count is now: 5
+Pid 1 put t in index [4], count is now: 5
+Pid 1 put h in index [0], count is now: 5
+Pid 1 put e in index [1], count is now: 5
+Pid 1 put   in index [2], count is now: 5
+Pid 1 put 1 in index [3], count is now: 5
+Pid 1 put s in index [4], count is now: 5
+Pid 1 put t in index [0], count is now: 5
+Pid 1 put   in index [1], count is now: 5
+Pid 1 put p in index [2], count is now: 5
+Pid 1 put r in index [3], count is now: 5
+Pid 1 put o in index [4], count is now: 5
+Pid 1 put d in index [0], count is now: 5
+Pid 1 put u in index [1], count is now: 5
+Pid 1 put c in index [2], count is now: 5
+Pid 1 put e in index [3], count is now: 5
+Pid 1 put r in index [4], count is now: 5
+Pid 1 put 
+ in index [0], count is now: 5
+Pid 1 put T in index [1], count is now: 5
+Pid 1 put h in index [2], count is now: 5
+Pid 1 put i in index [3], count is now: 5
+Pid 1 put s in index [4], count is now: 5
+Pid 1 put   in index [0], count is now: 5
+Pid 1 put i in index [1], count is now: 5
+Pid 1 put s in index [2], count is now: 5
+Pid 1 put   in index [3], count is now: 5
+Pid 1 put t in index [4], count is now: 5
+Pid 1 put h in index [0], count is now: 5
+Pid 1 put e in index [1], count is now: 5
+Pid 1 put   in index [2], count is now: 5
+Pid 1 put 3 in index [3], count is now: 5
+Pid 1 put r in index [4], count is now: 5
+Pid 1 put d in index [0], count is now: 5
+Pid 1 put   in index [1], count is now: 5
+Pid 1 put l in index [2], count is now: 5
+Pid 1 put i in index [3], count is now: 5
+Pid 1 put n in index [4], count is now: 5
+Pid 1 put e in index [0], count is now: 5
+Pid 1 put   in index [1], count is now: 5
+Pid 1 put f in index [2], count is now: 5
+Pid 1 put r in index [3], count is now: 5
+Pid 1 put o in index [4], count is now: 5
+Pid 1 put m in index [0], count is now: 5
+Pid 1 put   in index [1], count is now: 5
+Pid 1 put t in index [2], count is now: 5
+Pid 1 put h in index [3], count is now: 5
+Pid 1 put e in index [4], count is now: 5
+Pid 1 put   in index [0], count is now: 5
+Pid 1 put 1 in index [1], count is now: 5
+Pid 1 put s in index [2], count is now: 5
+Pid 1 put t in index [3], count is now: 5
+Pid 1 put   in index [4], count is now: 5
+Pid 1 put p in index [0], count is now: 5
+Pid 1 put r in index [1], count is now: 5
+Pid 1 put o in index [2], count is now: 5
+Pid 1 put d in index [3], count is now: 5
+Pid 1 put u in index [4], count is now: 5
+Pid 1 put c in index [0], count is now: 5
+Pid 1 put e in index [1], count is now: 5
+Pid 1 put r in index [2], count is now: 5
+Pid 1 put 
+ in index [3], count is now: 5
+Starting...
+Got pid: 2
+Pid 2 put T in index [4], count is now: 5
+Pid 2 put h in index [0], count is now: 5
+Pid 2 put i in index [1], count is now: 5
+Pid 2 put s in index [2], count is now: 5
+Pid 2 put   in index [3], count is now: 5
+Pid 2 put i in index [4], count is now: 5
+Pid 2 put s in index [0], count is now: 5
+Pid 2 put   in index [1], count is now: 5
+Pid 2 put t in index [2], count is now: 5
+Pid 2 put h in index [3], count is now: 5
+Pid 2 put e in index [4], count is now: 5
+Pid 2 put   in index [0], count is now: 5
+Pid 2 put 1 in index [1], count is now: 5
+Pid 2 put s in index [2], count is now: 5
+Pid 2 put t in index [3], count is now: 5
+Pid 2 put   in index [4], count is now: 5
+Pid 2 put l in index [0], count is now: 5
+Pid 2 put i in index [1], count is now: 5
+Pid 2 put n in index [2], count is now: 5
+Pid 2 put e in index [3], count is now: 5
+Pid 2 put   in index [4], count is now: 5
+Pid 2 put f in index [0], count is now: 5
+Pid 2 put r in index [1], count is now: 5
+Pid 2 put o in index [2], count is now: 5
+Pid 2 put m in index [3], count is now: 5
+Pid 2 put   in index [4], count is now: 5
+Pid 2 put t in index [0], count is now: 5
+Pid 2 put h in index [1], count is now: 5
+Pid 2 put e in index [2], count is now: 5
+Pid 2 put   in index [3], count is now: 5
+Pid 2 put 2 in index [4], count is now: 5
+Pid 2 put n in index [0], count is now: 5
+Pid 2 put d in index [1], count is now: 5
+Pid 2 put   in index [2], count is now: 5
+Pid 2 put p in index [3], count is now: 5
+Pid 2 put r in index [4], count is now: 5
+Pid 2 put o in index [0], count is now: 5
+Pid 2 put d in index [1], count is now: 5
+Pid 2 put u in index [2], count is now: 5
+Pid 2 put c in index [3], count is now: 5
+Pid 2 put e in index [4], count is now: 5
+Pid 2 put r in index [0], count is now: 5
+Pid 2 put 
+ in index [1], count is now: 5
+Pid 2 put T in index [2], count is now: 5
+Pid 2 put h in index [3], count is now: 5
+Pid 2 put i in index [4], count is now: 5
+Pid 2 put s in index [0], count is now: 5
+Pid 2 put   in index [1], count is now: 5
+Pid 2 put i in index [2], count is now: 5
+Pid 2 put s in index [3], count is now: 5
+Pid 2 put   in index [4], count is now: 5
+Pid 2 put t in index [0], count is now: 5
+Pid 2 put h in index [1], count is now: 5
+Pid 2 put e in index [2], count is now: 5
+Pid 2 put   in index [3], count is now: 5
+Pid 2 put 2 in index [4], count is now: 5
+Pid 2 put n in index [0], count is now: 5
+Pid 2 put d in index [1], count is now: 5
+Pid 2 put   in index [2], count is now: 5
+Pid 2 put l in index [3], count is now: 5
+Pid 2 put i in index [4], count is now: 5
+Pid 2 put n in index [0], count is now: 5
+Pid 2 put e in index [1], count is now: 5
+Pid 2 put   in index [2], count is now: 5
+Pid 2 put f in index [3], count is now: 5
+Pid 2 put r in index [4], count is now: 5
+Pid 2 put o in index [0], count is now: 5
+Pid 2 put m in index [1], count is now: 5
+Pid 2 put   in index [2], count is now: 5
+Pid 2 put t in index [3], count is now: 5
+Pid 2 put h in index [4], count is now: 5
+Pid 2 put e in index [0], count is now: 5
+Pid 2 put   in index [1], count is now: 5
+Pid 2 put 2 in index [2], count is now: 5
+Pid 2 put n in index [3], count is now: 5
+Pid 2 put d in index [4], count is now: 5
+Pid 2 put   in index [0], count is now: 5
+Pid 2 put p in index [1], count is now: 5
+Pid 2 put r in index [2], count is now: 5
+Pid 2 put o in index [3], count is now: 5
+Pid 2 put d in index [4], count is now: 5
+Pid 2 put u in index [0], count is now: 5
+Pid 2 put c in index [1], count is now: 5
+Pid 2 put e in index [2], count is now: 5
+Pid 2 put r in index [3], count is now: 5
+Pid 2 put 
+ in index [4], count is now: 5
+Pid 2 put T in index [0], count is now: 5
+Pid 2 put h in index [1], count is now: 5
+Pid 2 put i in index [2], count is now: 5
+Pid 2 put s in index [3], count is now: 5
+Pid 2 put   in index [4], count is now: 5
+Pid 2 put i in index [0], count is now: 5
+Pid 2 put s in index [1], count is now: 5
+Pid 2 put   in index [2], count is now: 5
+Pid 2 put t in index [3], count is now: 5
+Pid 2 put h in index [4], count is now: 5
+Pid 2 put e in index [0], count is now: 5
+Pid 2 put   in index [1], count is now: 5
+Pid 2 put 3 in index [2], count is now: 5
+Pid 2 put r in index [3], count is now: 5
+Pid 2 put d in index [4], count is now: 5
+Pid 2 put   in index [0], count is now: 5
+Pid 2 put l in index [1], count is now: 5
+Pid 2 put i in index [2], count is now: 5
+Pid 2 put n in index [3], count is now: 5
+Pid 2 put e in index [4], count is now: 5
+Pid 2 put   in index [0], count is now: 5
+Pid 2 put f in index [1], count is now: 5
+Pid 2 put r in index [2], count is now: 5
+Pid 2 put o in index [3], count is now: 5
+Pid 2 put m in index [4], count is now: 5
+Pid 2 put   in index [0], count is now: 5
+Pid 2 put t in index [1], count is now: 5
+Pid 2 put h in index [2], count is now: 5
+Pid 2 put e in index [3], count is now: 5
+Pid 2 put   in index [4], count is now: 5
+Pid 2 put 2 in index [0], count is now: 5
+Pid 2 put n in index [1], count is now: 5
+Pid 2 put d in index [2], count is now: 5
+Pid 2 put   in index [3], count is now: 5
+Pid 2 put p in index [4], count is now: 5
+Pid 2 put r in index [0], count is now: 5
+Pid 2 put o in index [1], count is now: 5
+Pid 2 put d in index [2], count is now: 5
+Pid 2 put u in index [3], count is now: 5
+Pid 2 put c in index [4], count is now: 5
+Pid 2 put e in index [0], count is now: 5
+Pid 2 put r in index [1], count is now: 5
+Pid 2 put 
+ in index [2], count is now: 5

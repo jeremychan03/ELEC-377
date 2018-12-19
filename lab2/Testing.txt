@@ -1,0 +1,13 @@
+To test the lab 2 kernel module, first we ran the command:
+> ps -l -A
+to output all the running processes, their PIDs, UIDs, and nice (priority) values.
+The output of this command is in the file "Lab2_PS_Output.txt"
+
+Next, we loaded the lab2 kernel module in a root terminal using the command:
+> insmod lab2.o
+After that, we ran the command:
+> cat /proc/lab2
+To view the required output of lab 2 including the number and list of all running processes, their PIDs, UIDs and nice (priority) values.
+The output of this command is in the file "Lab2_Output.txt"
+
+Comparing these two outputs, it can be seen that the PID, UID, and nice values match for all the processes except the last one. This is because the last processes is "ps" in the first case and "cat" in the second case, i.e. last command to be run. These two differ because they have different PID values as every new process is assigned a PID that is greater than the previous one.

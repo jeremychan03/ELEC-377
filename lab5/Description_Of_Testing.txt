@@ -1,0 +1,37 @@
+The Lab:
+
+The program was tested in two phases
+The first phase conisted of testing the selfcomp program, the second phase was testing the client program. 
+
+In testing the first phase --> selfcomp.c
+This is selfcomp breaking into itself, so there was no external system in which the 
+program was tested on. 
+This test was just performed to ensure that the initial aspects of the program 
+performed as expected. The results from this test can be seen in selfcomp_output.txt
+
+By varying the number of x's in the compromise1 array, the correct length was found to align the return address.
+To do this, "gdb selfcomp core" followed by "info registers" was used to inspect the contents on the eip register to align the test return address, "WXYZ".
+Once that was done, the exploit code was inserted and the nubmer of NOP instructions was adjusted accordingly so the return address was still aligned.
+This resulted in a working buffer overflow attack where the contexts of the /etc/passwd file were printed on screen, as expected.
+
+In testing the second phase --> client.c
+This is the client breaking into the server of "another system". 
+The other server was just a server running on the same system as the client.c
+The program performed as expected, with the client gaining access to the password
+file in the server
+
+The only changes that had to be done were the number of NOP instruction asnd the return address. 
+This was done using gdb in the same was, but this time the contents of the esp register were also inspected to calculate the correct return address.
+Once both parts were done, the server was run on one console and the client on another, both with the same port number.
+This resulted in the client returning the contents of the /etc/passwd file and the server crashing, as expected.
+
+The results from both tests are in selfcomp_output.txt and client_output.txt
+The results from both tests are the same since the "system" the two programs broke
+into is the same (the lab VM). As a result the data returned from both is the same.
+
+The results that were received from the tests was a list of users in the system 
+(ie root, adm, mysql). in addition to their password which is hidden as 'x'. After
+that is the location of the the users workspace is listed.
+
+These were the results that were expected. As a result we can conclude that the program function 
+as intented, and the system was successfully "compromised".

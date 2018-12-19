@@ -1,0 +1,23 @@
+In all the tests, the meminit program was run first to initialize the shared memory segment before running any other commands:
+> ./meminit
+
+To test the producer program we first ran a series of tests using the testing file "test00.txt",
+it contains only a small amount of characters which fit into the buffer without the producer program having to wait for a consumer to get data.
+This way, we were able to complete the producer program in the first lab without writing the consumer program yet.
+Next, we tested the producer program with the file "test01.txt", so it had to wait once the buffer was full.
+
+In the second lab period, we wrote the consumer program and tested one producer and one consumer using the file "test01.txt" by opening two terminals.
+In the first terminal, the producer was started with pid 0:
+> ./producer 0 < "test01.txt"
+Next, in the second terminal, the consumer was started with pid 1:
+> ./consumer 1
+The consumer output the full contents of the file "test01.txt" to the command line (stdout).
+
+To test the consumer with multiple producers, the command:
+> ./producer 0 < "test01.txt" >> "Two_Producers_Running_At_Once.txt" & ./producer 1 < "test02.txt" >> "Two_Producers_Running_At_Once.txt"
+was run to start two producers at once, with pids 0 and 1. The single & allows the two producers to run at the same time.
+Next, in the second terminal, the consumer was started with pid 2:
+> ./consumer 2 >>  "Consumer_Test.txt"
+
+The test was successful: the contents of files "test01.txt" and "test02.txt" was received by the consumer in order, with no losses, and with no extra characters.
+The results of this test are in the files "Two_Producers_Running_At_Once.txt" and " Consumer_Test.txt".

@@ -1,0 +1,25 @@
+UID        PID  PPID  C    SZ  RSS PSR STIME TTY          TIME CMD
+root         1     0  0   120  240   0 11:36 ?        00:00:03 init [3]  
+root         2     1  0     0    0   0 11:36 ?        00:00:00 [keventd]
+root         3     1  0     0    0   0 11:36 ?        00:00:00 [ksoftirqd_CPU0]
+root         4     1  0     0    0   0 11:36 ?        00:00:00 [kswapd]
+root         5     1  0     0    0   0 11:36 ?        00:00:00 [bdflush]
+root         6     1  0     0    0   0 11:36 ?        00:00:00 [kupdated]
+root        10     1  0     0    0   0 11:36 ?        00:00:00 [mdrecoveryd]
+root        11     1  0     0    0   0 11:36 ?        00:00:00 [kjournald]
+root        59     1  0   351  588   0 11:36 ?        00:00:00 /usr/sbin/syslogd
+root        62     1  0   336  448   0 11:36 ?        00:00:00 /usr/sbin/klogd -c 3 -x
+root       167     1  0   343  512   0 11:36 ?        00:00:00 /sbin/dhcpcd -d -t 10 eth0
+root      1545     1  0     0    0   0 11:36 ?        00:00:00 [khubd]
+root      1568     1  0   344  520   0 11:36 ?        00:00:00 /usr/sbin/inetd
+root      1575     1  0   364  560   0 11:36 ?        00:00:00 /usr/sbin/crond -l10
+root      1578     1  0  1225 2108   0 11:36 ?        00:00:00 sendmail: accepting connections       
+smmsp     1581     1  0  1197 1944   0 11:36 ?        00:00:00 sendmail: Queue runner@00:25:00 for /var/spool/clientmqueue
+student   1585     1  0   661 1552   0 11:36 tty1     00:00:00 -bash
+root      1586     1  0   334  468   0 11:36 tty2     00:00:00 /sbin/agetty 38400 tty2 linux
+root      1587     1  0   334  468   0 11:36 tty3     00:00:00 /sbin/agetty 38400 tty3 linux
+root      1588     1  0   334  468   0 11:36 tty4     00:00:00 /sbin/agetty 38400 tty4 linux
+root      1589     1  0   334  468   0 11:36 tty5     00:00:00 /sbin/agetty 38400 tty5 linux
+root      1590     1  0   334  468   0 11:36 tty6     00:00:00 /sbin/agetty 38400 tty6 linux
+student   1631  1585  0   749 1728   0 12:22 tty1     00:00:00 jed lab1.c
+student   1636  1585  0   569  788   0 12:23 tty1     00:00:00 ps -A -F

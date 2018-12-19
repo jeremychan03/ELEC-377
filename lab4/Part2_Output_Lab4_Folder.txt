@@ -1,0 +1,13 @@
+Main files:
+/root/Share/apsc-elec377-group-120/lab4/test.c:1,2
+Modules files:
+/root/Share/apsc-elec377-group-120/lab4/test.c:11,12,14
+Other files:
+/root/Share/apsc-elec377-group-120/lab4/Description_Of_Program.txt
+/root/Share/apsc-elec377-group-120/lab4/part1.sh
+/root/Share/apsc-elec377-group-120/lab4/Part1_Output.txt
+/root/Share/apsc-elec377-group-120/lab4/part2.sh
+/root/Share/apsc-elec377-group-120/lab4/Part2_Output_Lab3_Folder.txt
+/root/Share/apsc-elec377-group-120/lab4/Part2_Output_Lab4_Folder.txt
+/root/Share/apsc-elec377-group-120/lab4/PS_Output.txt
+/root/Share/apsc-elec377-group-120/lab4/Readme

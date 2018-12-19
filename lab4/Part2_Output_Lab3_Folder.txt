@@ -1,0 +1,21 @@
+Main files:
+/root/Share/apsc-elec377-group-120/lab3/consumer.c:12,2
+/root/Share/apsc-elec377-group-120/lab3/meminit.c:3,0
+/root/Share/apsc-elec377-group-120/lab3/producer.c:11,2
+Modules files:
+No module file
+Other files:
+/root/Share/apsc-elec377-group-120/lab3/common.c
+/root/Share/apsc-elec377-group-120/lab3/common.h
+/root/Share/apsc-elec377-group-120/lab3/common.o
+/root/Share/apsc-elec377-group-120/lab3/consumer
+/root/Share/apsc-elec377-group-120/lab3/Consumer_Test.txt
+/root/Share/apsc-elec377-group-120/lab3/Description_Of_Program.txt
+/root/Share/apsc-elec377-group-120/lab3/Description_Of_Testing
+/root/Share/apsc-elec377-group-120/lab3/Makefile
+/root/Share/apsc-elec377-group-120/lab3/meminit
+/root/Share/apsc-elec377-group-120/lab3/producer
+/root/Share/apsc-elec377-group-120/lab3/test00.txt
+/root/Share/apsc-elec377-group-120/lab3/test01.txt
+/root/Share/apsc-elec377-group-120/lab3/test02.txt
+/root/Share/apsc-elec377-group-120/lab3/Two_Producers_Running_At_Once.txt

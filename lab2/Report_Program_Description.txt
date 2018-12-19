@@ -1,0 +1,104 @@
+Pseudo-code algorithm description:
+
+my_read_proc:
+    If the file pointer is at position zero:
+        Print the number of running processes
+        Print the total number of threads
+        Print the headed "PID", "UID", "NICE"  
+
+        Get the first task
+        If its PID is not 0:
+            Print its PID, UID, NICE
+
+        Advance to the next task
+
+    If the file pointer is NOT at position zero:
+        If the first task was reached:
+            Exit since all tasks we looped through
+        
+        If the first task was NOT reached:
+            If its PID of the current task is not 0:
+                Print its PID, UID, NICE
+
+        Advance to the next task
+
+init_module:
+    Create a proc entry called "lab2"
+    If it was created successful:
+        Set the read_proc attribute of the entry to the my_read_proc function
+
+cleanup_module:
+    Remove the proc entry called "lab2"
+
+
+
+Program description:
+
+my_read_proc:
+    The numChars integer is used to count how namy chars were put in the page buffer.
+    If the file pointer is at position zero:
+        This means that the my_read_proc function is being called for the first time, so the initialization code should be run. In this case:
+
+        Print the number of running processes
+        Print the total number of threads
+        Print the headed "PID", "UID", "NICE"  
+
+        In each of the three lines above, the return value of sprintf (the number of characters put in the page buffer) is added to the numChars integer to be returned at the end. The page buffer is also offset by the numChars in the following calls to sprintf to continue writing to the page buffer instead of overwritting from the start each time.
+
+        Get the first task using &init_task
+        Set the last task to the first task
+
+        These two lines are needed to store the current task to be printed (stat out with the init Linux process accessible using init_task) and the last task will be used if all the tasks are looped over
+
+        If its PID is not 0:
+            Print its PID, UID, NICE
+
+        The PID must be non-zero to be printed because only valid processes have a non-zero PID in their PCBs. In case the PID is 0, this means the PCB is simply marked as invalid to be re-used later (the NICE value is also set to an invalid 20 in this case).
+        When printing the format "%-5s" is used to left-alight the PID, UID, and nice strings.
+
+        Advance to the next task
+
+        This is done by setting the pointer to the current task to the task that it points to, therefore, going to the next node in the linked list.
+
+    If the file pointer is NOT at position zero:
+        This means that the my_read_proc function is NOT being called for the first time, so each next task info should be printed.
+        In this case:
+
+        If the first task was reached:
+            Exit since all tasks we looped through
+            Setting:
+            *eof to 0
+            *start to page
+            And returning 0;
+
+        Since the task structs forms a circular linked list, the first task being reached indicates that all the tasked were looped over.
+        *eof is set to 0 to indicate that this function should not be called anymore, it has printed out all that it could.
+        *start is set to page to indicate that the page buffer was used to store the data
+        Zero is returned to indicate no characters were written to the page buffer.
+        
+        If the first task was NOT reached:
+            If its PID of the current task is not 0:
+                Print its PID, UID, NICE
+
+            The check and print work in the same way as the first one in the above segment.
+
+        Advance to the next task
+
+        This works the same as the first case.
+
+        When this function returns normally:
+        *eof is set to 1 to indicate that this function should be called again, it has NOT printed out all that it could.
+        *start is set to page to indicate that the page buffer was used to store the data
+        The numChars is returned to indicate how many characters were written to the page buffer.
+
+init_module:
+    Create a struct of type proc_dir_entry to store the proc entry that will be created.
+    Call the "create_proc_entry" function with the name as "lab2", the permissions as read only (0444) and the parent as NULL.
+    If the entry is not null, it was created successful
+    Otherwise, the init module returns -1 to indicate an error.
+    Next, the read_proc attribute of the entry struct is set to the my_read_proc function. This means that when the proc entry is read by the kernel, the my_read_proc function will be called.
+    At the end, 0 is returned to indicate that no errors happened. This point will only be reached if the previous return -1 was not reached.
+
+cleanup_module:
+    Call the "remove_proc_entry" function with the name as "lab2" and the parent as NULL.
+    This removes the "lab2" entry from the proc pseudo file system to make sure nothing is left behind after the kernel module is removed.

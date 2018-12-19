@@ -1,0 +1,24 @@
+  PID USER      RSS COMMAND
+    1 root      240 init [3]  
+    2 root        0 [keventd]
+    3 root        0 [ksoftirqd_CPU0]
+    4 root        0 [kswapd]
+    5 root        0 [bdflush]
+    6 root        0 [kupdated]
+   10 root        0 [mdrecoveryd]
+   11 root        0 [kjournald]
+   59 root      588 /usr/sbin/syslogd
+   62 root      448 /usr/sbin/klogd -c 3 -x
+  167 root      512 /sbin/dhcpcd -d -t 10 eth0
+ 1545 root        0 [khubd]
+ 1568 root      520 /usr/sbin/inetd
+ 1575 root      528 /usr/sbin/crond -l10
+ 1578 root     2104 sendmail: accepting connections       
+ 1581 smmsp    1940 sendmail: Queue runner@00:25:00 for /var/spool/clientmqueue
+ 1585 student  1568 -bash
+ 1586 root      468 /sbin/agetty 38400 tty2 linux
+ 1587 root      468 /sbin/agetty 38400 tty3 linux
+ 1588 root      468 /sbin/agetty 38400 tty4 linux
+ 1589 root      468 /sbin/agetty 38400 tty5 linux
+ 1590 root      468 /sbin/agetty 38400 tty6 linux
+ 1843 student   772 ps -eo pid,user,rss,args
