@@ -1,6 +1,3 @@
-// Vasa Shpatov, 15vs32
-// Ayrton Foster, 16atf
-
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
